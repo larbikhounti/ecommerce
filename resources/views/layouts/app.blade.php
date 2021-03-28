@@ -42,7 +42,11 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('category') }}">{{ __('Category') }}</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('colors') }}">{{ __('Colors') }}</a>
+                        </li>
                     </ul>
+                    
                     @endauth
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
