@@ -14,7 +14,7 @@ ecommerce is a web application using laravel framework.
 ## admin side
 - [x] Admin log in and log out system .
 - [] Add *item* page with add delete and update.
-- [] Add *categories* page with add delete and update .
+- [x] Add *categories* page with add delete and update .
 - [] Add *colors* page with add delete and update .
 - [] analytics  page .
 

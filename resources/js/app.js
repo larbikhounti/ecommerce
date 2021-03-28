@@ -1,3 +1,4 @@
+import Swal from 'sweetalert2'
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes React and other helpers. It's a great starting point while
@@ -13,3 +14,22 @@ require('./bootstrap');
  */
 
 require('./components/Charts');
+
+
+// sweet alert 2
+window.deleteConfirm = function()
+{
+    
+    Swal.fire({
+        icon: 'warning',
+        text: 'Do you want to delete this?',
+        showCancelButton: true,
+        confirmButtonText: 'Delete',
+        confirmButtonColor: '#e3342f',
+    }).then((result) => {
+        if (result.isConfirmed) {
+          let link =   document.querySelector("#delete").getAttribute("to");
+            document.location = link;
+        }
+    });
+}
