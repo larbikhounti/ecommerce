@@ -18,7 +18,7 @@
 
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-   
+    @yield('customCss')
 
 
     <!-- Styles -->
@@ -39,6 +39,9 @@
                     @Auth
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('items') }}">{{ __('Items') }}</a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('category') }}">{{ __('Category') }}</a>
                         </li>
