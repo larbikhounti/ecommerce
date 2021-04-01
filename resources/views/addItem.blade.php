@@ -47,6 +47,15 @@ $(document).ready(function (e) {
 
 <div id='login '>
     <div class='container'>
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
         <div id='login-row' class='row justify-content-center align-items-center'>
             <div id='login-column' class='col-md-6'>
                 <div id='login-box' class='col-md-12 bg-dark'>
@@ -77,23 +86,23 @@ $(document).ready(function (e) {
                         </div>
                         <div class='form-group'>
                             <label for='title'  class='text-light font-weight-bold'>{{__("title")}}</label><br>
-                            <input type='text'  name='title'  id='title' class='form-control bg-light' required>
+                            <input type='text'  name='title'  id='title' class='form-control bg-light' value={{ old('title') }} required>
                         </div>
                         <div class='form-group'>
                             <label for='slug'  class='text-light font-weight-bold'>{{__("slug")}}</label><br>
-                            <input type='text'  name='slug'  id='slug' class='form-control bg-light' required>
+                            <input type='text'  name='slug'  id='slug' class='form-control bg-light'  value={{ old('slug') }} required>
                         </div>
                         <div class='form-group' >
                             <label for='description' class='text-light font-weight-bold'>{{__("description")}}</label><br>
-                            <textarea type='text'  name='description'    class='form-control' aria-multiline="true" required ></textarea>
+                            <textarea type='text'  name='description'    class='form-control' aria-multiline="true" value={{ old('description') }} required ></textarea>
                         </div>
                         <div class='form-group'>
                             <label for='price' class='text-light font-weight-bold'>{{_("price")}}</label><br>
-                            <input type='number' step='0.01' name='price'  id='price' class='form-control' required >
+                            <input type='number' step='0.01' name='price'  id='price' class='form-control' value={{ old('price') }} required >
                         </div>
                         <div class='form-group'>
                             <label for='quantity' class='text-light font-weight-bold'>{{_("quantity")}}</label><br>
-                            <input type='number'   name='quantity'  id='quantity' class='form-control'  required>
+                            <input type='number'   name='quantity'  id='quantity' class='form-control' value={{ old('quantity') }}  required>
                         </div>
                         <label for='Category' class='text-light font-weight-bold'>{{__("Categories")}}</label><br>
                         <div class='input-group  form-group buttom' id="Category">

@@ -49,6 +49,17 @@ class ItemController extends Controller
 
     public function add(Request $request)
     {
+        //'avatar' => 'dimensions:min_width=100,min_height=200'
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'slug' => 'required',
+            'price' => 'required|regex:/^\d.\d/',
+            'quantity' => 'required|integer',
+            'primary_image' => 'required|image|mimes:jpeg,png,jpg,svg',
+            'secondary_images.*' => 'required|image|mimes:jpeg,png,svg',
+            
+        ]);
        
         $baseUrl =  URL::to("/") ;
         $secondary_images = [];
@@ -91,10 +102,10 @@ class ItemController extends Controller
              
             }
            
-               
+            redirect("items");
         }
   
-        //dd(Request("colors"));
+        
     }
 
 public function addItemPage()

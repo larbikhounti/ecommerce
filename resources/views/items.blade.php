@@ -22,12 +22,11 @@
               <th scope="col">{{__("descreption")}} </th>
               <th scope="col">{{__("price")}} </th>
               <th scope="col">{{__("picture")}} </th>
-              <th scope="col">a</th>
-              <th scope="col">b</th>
               <th scope="col">
                 <a href={{ route('item.additempage') }}><button class="btn btn-success ml-2" type="submit">Add item</button></a>
               </th>
             </tr>
+            
           </thead>
           <tbody>
                 @foreach ($all as $item)   
@@ -36,16 +35,14 @@
                     <td  >{{$item->title}}</td>
                     <td  >{{ Str::limit($item->descreption, $limit = 15, $end = '...')}}</td>
                     <td  >{{$item->price}}</td>
-                    <td  >{{$item->picture}}</td>
-                    <td>
-                      <a id="delete" to={{ route('item.delete',$item->id)}}  onclick="deleteConfirm();"><Button class=' btn-danger mybtn'>delete</Button></a>
-                    </td>
+                    <td  ><img src={{$item->picture}} width="50px" height="50px"></td>
+                    
                      <td>
+                      <a id="delete" to={{ route('item.delete',$item->id)}}  onclick="deleteConfirm();"><Button class=' btn-danger mybtn'>delete</Button></a>
                         <button  class=' btn-primary ml-2 mybtn' type='submit'>Update <i class='bi bi-pencil-square'></i></button>
+                        <button  class=' btn-success ml-2 mybtn' type='submit'>View <i class='bi bi-pencil-square'></i></button>
                      </td>
-                  <td>
-                    <button  class=' btn-success ml-2 mybtn' type='submit'>View <i class='bi bi-pencil-square'></i></button>
-                </td> 
+                  
               </tr>
                 @endforeach
           </tbody>
