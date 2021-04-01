@@ -23,7 +23,7 @@
               <th scope="col">{{__("price")}} </th>
               <th scope="col">{{__("picture")}} </th>
               <th scope="col">
-                <a href={{ route('item.additempage') }}><button class="btn btn-success ml-2" type="submit">Add item</button></a>
+                <a href={{ route('item.additempage') }}><button class="btn btn-warning ml-2" type="submit">{{__("Add product")}} </button></a>
               </th>
             </tr>
             

@@ -102,7 +102,8 @@ class ItemController extends Controller
              
             }
            
-            redirect("items");
+            
+            redirect()->route('items');
         }
   
         
