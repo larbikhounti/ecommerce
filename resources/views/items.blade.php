@@ -25,7 +25,7 @@
               <th scope="col">a</th>
               <th scope="col">b</th>
               <th scope="col">
-                <button class="btn btn-success ml-2" type="submit">Add item</button>
+                <a href={{ route('item.additempage') }}><button class="btn btn-success ml-2" type="submit">Add item</button></a>
               </th>
             </tr>
           </thead>

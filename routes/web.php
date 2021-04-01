@@ -15,13 +15,13 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/admin', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 // category 
 Route::get('/category', [App\Http\Controllers\CategoryController::class, 'index'])->name('category');
@@ -40,5 +40,6 @@ Route::post('/color/add', [App\Http\Controllers\ColorController::class, 'add'])-
 // items 
 Route::get('/items', [App\Http\Controllers\ItemController::class, 'index'])->name('items');
 Route::get('/item/delete/{id}', [App\Http\Controllers\ItemController::class, 'delete'])->name('item.delete');
+Route::get('/item/additempage',  [App\Http\Controllers\ItemController::class, 'addItemPage'])->name('item.additempage');
 Route::post('/item/update', [App\Http\Controllers\ItemController::class, 'update'])->name('item.update');
 Route::post('/item/add', [App\Http\Controllers\ItemController::class, 'add'])->name('item.add');

@@ -5,14 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class color extends Model
+class item_pictures extends Model
 {
+    protected $table = "item_pictures";
     use HasFactory;
-
-    
     public function item()
     {
         # code...
-        return  $this->belongsToMany(item::class,"color_item");
+         return $this->belongsTo(item::class,"item_pictures");
     }
 }
