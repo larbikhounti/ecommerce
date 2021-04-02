@@ -39,7 +39,7 @@
                     
                      <td>
                       <a id="delete" to={{ route('item.delete',$item->id)}}  onclick="deleteConfirm();"><Button class=' btn-danger mybtn'>delete</Button></a>
-                        <button  class=' btn-primary ml-2 mybtn' type='submit'>Update <i class='bi bi-pencil-square'></i></button>
+                      <a id="update" href={{ route('item.updateitempage',$item->id)}}  > <button  class=' btn-primary ml-2 mybtn' type='submit'>Update <i class='bi bi-pencil-square'></i></button></a>
                         <button  class=' btn-success ml-2 mybtn' type='submit'>View <i class='bi bi-pencil-square'></i></button>
                      </td>
                   

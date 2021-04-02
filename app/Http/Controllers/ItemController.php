@@ -43,8 +43,49 @@ class ItemController extends Controller
     }
 
     public function update(Request $request)
-    {
-      
+    {   
+        $baseUrl =  URL::to("/") ;
+        $secondary_images = [];
+        
+        if($request->primary_image){
+            $primary_image = $baseUrl."/storage/".$request->primary_image->store('images',"public"); 
+        }else if($request->secondary_images){
+            foreach ($request->secondary_images as $key ) {
+                $secondary_images[] = $baseUrl."/storage/".$key->store('images',"public");  
+            }
+        }
+
+        $item = item::find($request->id);
+        $item->title = Request("title");
+        $item->descreption = Request("description");
+        $item->slug = Request("slug");
+        $item->price = Request("price");
+        $item->quantity = Request("quantity");
+        if($request->primary_image){
+            $item->picture = $primary_image;
+        }else{
+            $item->picture =  $item->picture;
+        }
+        if($item->save()){
+            if($request->colors){
+                $item->color()->sync($request->colors);
+            }
+             else if($request->categories){
+                $item->category()->sync($request->categories);
+            }
+            
+           else if($request->secondary_images){
+            foreach ($secondary_images as $picture) {
+                $item->pictures()->update([
+                    'item_id' => $request->id,
+                    'image_path' =>  $picture,
+                    
+                  ]);
+            }
+           }    
+           
+        }
+       return $this->index();
     }
 
     public function add(Request $request)
@@ -97,13 +138,27 @@ class ItemController extends Controller
         return  $this->index();
     }
 
-public function addItemPage()
-{
-    # code...
-    $colors = color::select("name","id")->get();
-    $categories = Category::select("name","id")->get();
-    
-    
-    return view("additem",["colors"=>$colors,"categories"=>$categories]);
-}
+    public function addItemPage()
+    {
+        # code...
+        $colors = color::select("name","id")->get();
+        $categories = Category::select("name","id")->get();
+        
+        
+        return view("additem",["colors"=>$colors,"categories"=>$categories]);
+    }
+
+    public function updateItemPage($id)
+    {
+       
+        $item= item::find($id);
+        $secondary_images = $item->pictures()->get()->pluck("image_path");
+        
+
+       
+        $colors = color::select("name","id")->get();
+        $categories = Category::select("name","id")->get();
+        return view("update_item",compact("id","categories","colors","secondary_images","item"));
+   
+    }
 }
