@@ -79,34 +79,22 @@ class ItemController extends Controller
 
         if($item->save()){
             
-            $id = $item->id;
-            
-            foreach (Request("colors") as $color => $value) {
-                $color_item = new color_item();
-                $color_item->color_id = $value;
-                $color_item->item_id = $id;
-                $color_item->save();
-            }
-            foreach (Request("categories") as $category => $value) {
-                $category_item = new category_item();
-                $category_item->category_id = $value;
-                $category_item->item_id = $id;
-                $category_item->save();
-             
-            }
-            foreach ($secondary_images as $pic ) {
-                $item_pictures = new item_pictures();
-                $item_pictures->image_path = $pic;
-                $item_pictures->item_id = $id;
-                $item_pictures->save();
-             
+            $myitem =  item::find( $item->id);
+            $myitem->color()->attach(Request("colors"));
+            $myitem->category()->attach(Request("categories"));
+            foreach ($secondary_images as $picture) {
+                $item = new item();
+                $myitem->pictures()->create([
+                    'item_id' => $myitem,
+                    'image_path' =>  $picture,
+                    
+                  ]);
             }
            
-            
-            redirect()->route('items');
+         
         }
   
-        
+        return  $this->index();
     }
 
 public function addItemPage()

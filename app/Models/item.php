@@ -22,7 +22,7 @@ class item extends Model
     public function pictures()
     {
        
-       return $this->hasMany(item_pictures::class,"item_pictures");
+       return $this->hasMany(item_pictures::class);
     }
  
 }
