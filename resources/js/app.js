@@ -33,3 +33,4 @@ window.deleteConfirm = function()
         }
     });
 }
+

@@ -40,10 +40,17 @@ $(document).ready(function (e) {
 })
 </script>
     
+    
+<script src="//cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
+
+<script>
+    CKEDITOR.replace( 'description' );
+</script>
+
+
 @endsection
 
 @section('content')
-<img src={{asset("storage/L7s5KJNZk7ZOq2ZZ0r5oGMGslzbvweNncIh5Dedq.png")}} alt="" srcset="">
 
 <div id='login '>
     <div class='container'>
@@ -95,7 +102,7 @@ $(document).ready(function (e) {
                         </div>
                         <div class='form-group' >
                             <label for='description' class='text-light font-weight-bold'>{{__("description")}}</label><br>
-                            <textarea type='text'  name='description'    class='form-control' aria-multiline="true"  >{{$item->descreption}}</textarea>
+                            <textarea type='text' id="description"  name='description'    class='form-control' aria-multiline="true"  >{!!$item->descreption!!}</textarea>
                         </div>
                         <div class='form-group'>
                             <label for='price' class='text-light font-weight-bold'>{{_("price")}}</label><br>

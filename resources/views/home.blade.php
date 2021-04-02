@@ -29,10 +29,25 @@
                             {{ __('Products') }}
                         </div>
                         <div class="card-body  text-center">
-                           <h3>100</h3>
+                           <h3>{{$totalOfItems}}</h3>
                         </div> 
                     </div>
-
+                    <div class="card " >
+                        <div class="card-header text-center"> 
+                            {{ __('Categories') }}
+                        </div>
+                        <div class="card-body  text-center">
+                           <h3>{{$totalOfcategories}}</h3>
+                        </div> 
+                    </div>
+                    <div class="card " >
+                        <div class="card-header text-center"> 
+                            {{ __('Colors') }}
+                        </div>
+                        <div class="card-body  text-center">
+                           <h3>{{$totalOfColors}}</h3>
+                        </div> 
+                    </div>
                     
                 </div>
             <div>

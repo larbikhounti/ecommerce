@@ -33,7 +33,7 @@
                 <tr >
                   <th class="" scope='row'>{{$item->id}}</th>
                     <td  >{{$item->title}}</td>
-                    <td  >{{ Str::limit($item->descreption, $limit = 15, $end = '...')}}</td>
+                    <td  >{!! Str::limit($item->descreption, $limit = 15, $end = '...')!!}</td>
                     <td  >{{$item->price}}</td>
                     <td  ><img src={{$item->picture}} width="50px" height="50px"></td>
                     
