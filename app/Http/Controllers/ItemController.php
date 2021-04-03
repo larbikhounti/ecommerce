@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Storage;
 use App\Models\color;
 use App\Models\item;
-use App\Models\Category;
+use App\Models\category;
 use App\Models\category_item;
 use App\Models\color_item;
 use App\Models\item_pictures;
