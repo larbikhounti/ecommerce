@@ -106,11 +106,11 @@ $(document).ready(function (e) {
                             <textarea type='text' id="description" name='description'    class='form-control' aria-multiline="true" rows="10" cols="80" value={{ old('description') }} required ></textarea>
                         </div>
                         <div class='form-group'>
-                            <label for='price' class='text-light font-weight-bold'>{{_("price")}}</label><br>
+                            <label for='price' class='text-light font-weight-bold'>{{__("price")}}</label><br>
                             <input type='number' step='0.01' name='price'  id='price' class='form-control' value={{ old('price') }} required >
                         </div>
                         <div class='form-group'>
-                            <label for='quantity' class='text-light font-weight-bold'>{{_("quantity")}}</label><br>
+                            <label for='quantity' class='text-light font-weight-bold'>{{__("quantity")}}</label><br>
                             <input type='number'   name='quantity'  id='quantity' class='form-control' value={{ old('quantity') }}  required>
                         </div>
                         <label for='Category' class='text-light font-weight-bold'>{{__("Categories")}}</label><br>
