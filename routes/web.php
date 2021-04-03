@@ -24,17 +24,17 @@ Auth::routes();
 Route::get('/admin', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 // category 
-Route::get('/category', [App\Http\Controllers\CategoryController::class, 'index'])->name('category');
-Route::get('/category/delete/{id}', [App\Http\Controllers\CategoryController::class, 'delete'])->name('category.delete');
-Route::post('/category/update', [App\Http\Controllers\CategoryController::class, 'update'])->name('category.update');
-Route::post('/category/add', [App\Http\Controllers\CategoryController::class, 'add'])->name('category.add');
+Route::get('/Category', [App\Http\Controllers\CategoryController::class, 'index'])->name('category');
+Route::get('/Category/delete/{id}', [App\Http\Controllers\CategoryController::class, 'delete'])->name('category.delete');
+Route::post('/Category/update', [App\Http\Controllers\CategoryController::class, 'update'])->name('category.update');
+Route::post('/Category/add', [App\Http\Controllers\CategoryController::class, 'add'])->name('category.add');
 
 
 // colors 
-Route::get('/colors', [App\Http\Controllers\ColorController::class, 'index'])->name('colors');
-Route::get('/color/delete/{id}', [App\Http\Controllers\ColorController::class, 'delete'])->name('color.delete');
-Route::post('/color/update', [App\Http\Controllers\ColorController::class, 'update'])->name('color.update');
-Route::post('/color/add', [App\Http\Controllers\ColorController::class, 'add'])->name('color.add');
+Route::get('/Colors', [App\Http\Controllers\ColorController::class, 'index'])->name('colors');
+Route::get('/Color/delete/{id}', [App\Http\Controllers\ColorController::class, 'delete'])->name('color.delete');
+Route::post('/Color/update', [App\Http\Controllers\ColorController::class, 'update'])->name('color.update');
+Route::post('/Color/add', [App\Http\Controllers\ColorController::class, 'add'])->name('color.add');
 
 
 // items 
