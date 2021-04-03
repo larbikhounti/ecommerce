@@ -145,7 +145,7 @@ class ItemController extends Controller
         $categories = Category::select("name","id")->get();
         
         
-        return view("additem",["colors"=>$colors,"categories"=>$categories]);
+        return view("addItem",["colors"=>$colors,"categories"=>$categories]);
     }
 
     public function updateItemPage($id)
