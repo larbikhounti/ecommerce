@@ -40,10 +40,15 @@ $(document).ready(function (e) {
 })
 </script>
     
-<script src="//cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
+<script src="https://cdn.ckeditor.com/ckeditor5/27.0.0/classic/ckeditor.js"></script>
+
 
 <script>
-    CKEDITOR.replace( 'description' );
+    ClassicEditor
+        .create( document.querySelector( '#description' ) )
+        .catch( error => {
+            console.error( error );
+        } );
 </script>
 @endsection
 
