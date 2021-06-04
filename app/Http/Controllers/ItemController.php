@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Models\color;
 use App\Models\item;
 use App\Models\category;
+use App\Models\sizes;
 use App\Models\category_item;
 use App\Models\color_item;
 use App\Models\item_pictures;
@@ -123,6 +124,7 @@ class ItemController extends Controller
             $myitem =  item::find( $item->id);
             $myitem->color()->attach(Request("colors"));
             $myitem->category()->attach(Request("categories"));
+            $myitem->size()->attach(Request("sizes"));
             foreach ($secondary_images as $picture) {
                 $item = new item();
                 $myitem->pictures()->create([
@@ -143,9 +145,10 @@ class ItemController extends Controller
         # code...
         $colors = color::select("name","id")->get();
         $categories = Category::select("name","id")->get();
+        $sizes = sizes::select("name","id")->get();
         
         
-        return view("addItem",["colors"=>$colors,"categories"=>$categories]);
+        return view("addItem",["colors"=>$colors,"categories"=>$categories,"sizes"=>$sizes]);
     }
 
     public function updateItemPage($id)

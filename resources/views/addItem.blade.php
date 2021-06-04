@@ -138,6 +138,20 @@ $(document).ready(function (e) {
                                 </select>
 
                         </div>
+                        <label for='sizes' class='text-light font-weight-bold'>{{__("Sizes")}}</label><br>
+                        <div class='input-group  form-group buttom'>
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="inputGroupSelect01">{{__("Sizes")}}</label>
+                            </div>
+                                 <select name="sizes[]"  multiple class='custom-select' id='inputGroupSelect01' required>
+                                   
+                                    @foreach ($sizes as $size)
+                                    <option value={{ $size->id}}>{{ $size->name}}</option>
+                                    @endforeach
+                                      
+                                </select>
+
+                        </div>
                         <div class='form-group'>
                             <input type='text' value="add"   name='method'  id='quantity' class='form-control'  hidden>
                         </div>

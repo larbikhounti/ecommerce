@@ -24,5 +24,9 @@ class item extends Model
        
        return $this->hasMany(item_pictures::class);
     }
+    public function size()
+    {
+       return $this->belongsToMany(category::class,"item_sizes");
+    }
  
 }

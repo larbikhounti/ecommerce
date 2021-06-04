@@ -48,6 +48,14 @@
                            <h3>{{$totalOfColors}}</h3>
                         </div> 
                     </div>
+                    <div class="card " >
+                        <div class="card-header text-center"> 
+                            {{ __('Sizes') }}
+                        </div>
+                        <div class="card-body  text-center">
+                           <h3>{{$totalOfSizes}}</h3>
+                        </div> 
+                    </div>
                     
                 </div>
             <div>

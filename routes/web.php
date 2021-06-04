@@ -36,6 +36,11 @@ Route::get('/Color/delete/{id}', [App\Http\Controllers\ColorController::class, '
 Route::post('/Color/update', [App\Http\Controllers\ColorController::class, 'update'])->name('color.update');
 Route::post('/Color/add', [App\Http\Controllers\ColorController::class, 'add'])->name('color.add');
 
+// sizes
+Route::get('/sizes', [App\Http\Controllers\SizesController::class, 'index'])->name('sizes');
+Route::get('/size/delete/{id}', [App\Http\Controllers\SizesController::class, 'delete'])->name('size.delete');
+Route::post('/size/update', [App\Http\Controllers\SizesController::class, 'update'])->name('size.update');
+Route::post('/size/add', [App\Http\Controllers\SizesController::class, 'add'])->name('size.add');
 
 // items 
 Route::get('/items', [App\Http\Controllers\ItemController::class, 'index'])->name('items');

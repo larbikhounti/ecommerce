@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\category;
 use App\Models\color;
 use App\Models\item;
+use App\Models\sizes;
 use Illuminate\Http\Request;
 
 
@@ -30,7 +31,8 @@ class HomeController extends Controller
        $totalOfItems = collect(item::select("id")->get())->count();
        $totalOfcategories = collect(category::select("id")->get())->count();
        $totalOfColors = collect(color::select("id")->get())->count();
-        return view('home',compact("totalOfItems","totalOfcategories","totalOfColors"));
+       $totalOfSizes = collect(sizes::select("id")->get())->count();
+        return view('home',compact("totalOfItems","totalOfcategories","totalOfColors","totalOfSizes"));
     }
 
     public function countClients()
