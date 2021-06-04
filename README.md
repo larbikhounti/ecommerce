@@ -19,9 +19,9 @@ ecommerce is a web application using laravel framework.
 - [] analytics  page .
 
 ##client/user side 
-- [] welcome page.
-- [] item info page.
-- [] bag/cart page.
+- [x] welcome page.
+- [x] item info page.
+- [x] bag/cart page.
 - [] checkout page.
 
 ## Laravel Sponsors
