@@ -98,6 +98,14 @@ $(document).ready(function (e) {
                             <input type='text'  name='title'  id='title' class='form-control bg-light' value={{ old('title') }} required>
                         </div>
                         <div class='form-group'>
+                            <label for='gender' class='text-light font-weight-bold'>{{__("gender")}}</label><br>
+                            <select class="form-select w-100" id="gender" name ="gender" aria-label="Default select example">
+                                <option value="men">men</option>
+                                <option value="women">women</option>
+                                <option value="kdis">kids</option>
+                              </select>
+                        </div>
+                        <div class='form-group'>
                             <label for='slug'  class='text-light font-weight-bold'>{{__("slug")}}</label><br>
                             <input type='text'  name='slug'  id='slug' class='form-control bg-light'  value={{ old('slug') }} required>
                         </div>

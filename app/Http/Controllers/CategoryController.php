@@ -27,25 +27,25 @@ class CategoryController extends Controller
         # code...
         if (category::where('id', $id)->first() != null) {
             category::where('id', $id)->delete();
-            return redirect("category");
+            return redirect("Category");
         } else {
-            return redirect("category");
+            return redirect("Category");
         }
     }
 
     public function update(Request $request)
     {
         $id = $request->input('id');
-        $newname = $request->input('category');
+        $newname = $request->input('Category');
         # code...
 
         if (category::where('id', $id)->first() != null) {
             $category = category::find($id);
             $category->name = $newname;
             $category->save();
-            return redirect("category");
+            return redirect("Category");
         } else {
-            return redirect("category");
+            return redirect("Category");
         }
     }
 
@@ -57,7 +57,7 @@ class CategoryController extends Controller
             $category = new category();
             $category->name = $newCategory;
             $category->save();
-            return redirect("category");
+            return redirect("Category");
         
     }
 }

@@ -62,20 +62,22 @@ class ItemController extends Controller
         $item->slug = Request("slug");
         $item->price = Request("price");
         $item->quantity = Request("quantity");
+        $item->color()->sync($request->colors);
+        $item->category()->sync($request->categories);
+        if($request->colors){
+            $item->color()->sync($request->colors);
+        }
+        if($request->categories){
+            $item->category()->sync($request->categories);
+        }
         if($request->primary_image){
             $item->picture = $primary_image;
         }else{
             $item->picture =  $item->picture;
         }
         if($item->save()){
-            if($request->colors){
-                $item->color()->sync($request->colors);
-            }
-             else if($request->categories){
-                $item->category()->sync($request->categories);
-            }
-            
-           else if($request->secondary_images){
+
+            if($request->secondary_images){
             foreach ($secondary_images as $picture) {
                 $item->pictures()->update([
                     'item_id' => $request->id,
@@ -117,6 +119,7 @@ class ItemController extends Controller
         $item->slug = Request("slug");
         $item->price = Request("price");
         $item->quantity = Request("quantity");
+        $item->gender = Request("gender");
         $item->picture =  $primary_image;
 
         if($item->save()){

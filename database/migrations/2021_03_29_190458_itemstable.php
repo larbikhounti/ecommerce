@@ -20,6 +20,7 @@ class Itemstable extends Migration
             $table->string("title");
             $table->string("descreption");
             $table->string("slug");
+            $table->string("gender");
             $table->double("price");
             $table->unsignedInteger("quantity");
             $table->string("picture");

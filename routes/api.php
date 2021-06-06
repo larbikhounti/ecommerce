@@ -21,7 +21,36 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/items', function() {
-    return new ItemResource(item::with("color","category","size")->get());
+    return new ItemResource(item::with("category:name")->get());
 });
+Route::get('/item/{id}', function($id) {
+    return new ItemResource(item::findorfail($id)->with("color","category","size","pictures")->get());
+});
+Route::get('/items/bycategory/{gender}', function($gender)  {
+    if($category != ""){
+       return new ItemResource(item::whereHas("category",function($q)  use($gender)
+        {
+            return $q->where("name",$gender);
+        })->get());
+    }else{
+        return false;
+    }
+    
+});
+ // get items whom have category and sub catagory 
+Route::get('/items/bysubcategory/{gender}/{category}', function($gender,$category)  {
+    $filters = [$gender,$category];
+    if($category != ""){
+       return new ItemResource(item::whereHas("category",function($q)  use($filters)
+        {
+            return $q->where("gender",$filters[0])->where("name",$filters[1]);
+        })->get());
+    }else{
+        return false;
+    }
+    
+});
+
+
 
 
