@@ -28,10 +28,7 @@ Route::get('/item/{id}', function($id) {
 });
 Route::get('/items/bycategory/{gender}', function($gender)  {
     if($gender != ""){
-       return new ItemResource(item::whereHas("category",function($q)  use($gender)
-        {
-            return $q->where("gender",$gender);
-        })->get());
+       return new ItemResource(item::where("gender",$gender)->get());
     }else{
         return false;
     }
