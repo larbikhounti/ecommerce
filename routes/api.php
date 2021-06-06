@@ -26,6 +26,8 @@ Route::get('/items', function() {
 Route::get('/item/{id}', function($id) {
     return new ItemResource(item::findorfail($id)->with("color","category","size","pictures")->get());
 });
+
+// by gender
 Route::get('/items/bycategory/{gender}', function($gender)  {
     if($gender != ""){
        return new ItemResource(item::where("gender",$gender)->get());
@@ -34,7 +36,7 @@ Route::get('/items/bycategory/{gender}', function($gender)  {
     }
     
 });
- // get items whom have category and sub catagory 
+ // get items whom have gender and sub catagory 
 Route::get('/items/bysubcategory/{gender}/{category}', function($gender,$category)  {
     $filters = [$gender,$category];
     if($gender != "" && $category != ""){
