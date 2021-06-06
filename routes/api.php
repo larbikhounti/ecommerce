@@ -4,7 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Resources\ItemResource;
 use App\Models\item;
-
+use App\Models\category;
+use App\Http\Resources\CategoryResource;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -50,6 +51,9 @@ Route::get('/items/bysubcategory/{gender}/{category}', function($gender,$categor
     
 });
 
-
+// category 
+Route::get('categories', function()  {
+       return new CategoryResource(category::all());
+});
 
 

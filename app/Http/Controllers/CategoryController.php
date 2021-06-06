@@ -36,7 +36,7 @@ class CategoryController extends Controller
     public function update(Request $request)
     {
         $id = $request->input('id');
-        $newname = $request->input('Category');
+        $newname = $request->input('category');
         # code...
 
         if (category::where('id', $id)->first() != null) {
