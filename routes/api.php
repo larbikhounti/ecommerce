@@ -27,10 +27,10 @@ Route::get('/item/{id}', function($id) {
     return new ItemResource(item::findorfail($id)->with("color","category","size","pictures")->get());
 });
 Route::get('/items/bycategory/{gender}', function($gender)  {
-    if($category != ""){
+    if($gender != ""){
        return new ItemResource(item::whereHas("category",function($q)  use($gender)
         {
-            return $q->where("name",$gender);
+            return $q->where("gender",$gender);
         })->get());
     }else{
         return false;
@@ -40,7 +40,7 @@ Route::get('/items/bycategory/{gender}', function($gender)  {
  // get items whom have category and sub catagory 
 Route::get('/items/bysubcategory/{gender}/{category}', function($gender,$category)  {
     $filters = [$gender,$category];
-    if($category != ""){
+    if($gender != "" && $category != ""){
        return new ItemResource(item::whereHas("category",function($q)  use($filters)
         {
             return $q->where("gender",$filters[0])->where("name",$filters[1]);
