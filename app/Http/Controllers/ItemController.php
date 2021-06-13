@@ -98,7 +98,7 @@ class ItemController extends Controller
             'title' => 'required',
             'description' => 'required',
             'slug' => 'required',
-            'price' => 'required|regex:/^\d.\d/',
+            'price' => 'required',
             'quantity' => 'required|integer',
             'primary_image' => 'required|image|mimes:jpeg,png,jpg,svg',
             'secondary_images.*' => 'required|image|mimes:jpeg,png,svg',

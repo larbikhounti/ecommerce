@@ -24,8 +24,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('/items', function() {
     return new ItemResource(item::with("category:name")->get());
 });
-Route::get('/item/{id}', function($id) {
-    return new ItemResource(item::findorfail($id)->with("color","category","size","pictures")->get());
+Route::get('/item/{slug}', function($slug) {
+    return new ItemResource(item::where('slug', $slug)->with("color","category","size","pictures")->get());
 });
 
 // by gender
@@ -55,5 +55,8 @@ Route::get('/items/bysubcategory/{gender}/{category}', function($gender,$categor
 Route::get('categories', function()  {
        return new CategoryResource(category::all());
 });
+
+
+
 
 
