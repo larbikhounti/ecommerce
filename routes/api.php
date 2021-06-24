@@ -5,7 +5,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Resources\ItemResource;
 use App\Models\item;
 use App\Models\category;
+use App\Models\clients;
 use App\Http\Resources\CategoryResource;
+use App\Http\Controllers\clientsContoller;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -55,6 +57,10 @@ Route::get('/items/bysubcategory/{gender}/{category}', function($gender,$categor
 Route::get('categories', function()  {
        return new CategoryResource(category::all());
 });
+
+// category 
+Route::post('/addclient', "clientsContoller@store");
+Route::post('/loginclient', "clientsContoller@login");
 
 
 
