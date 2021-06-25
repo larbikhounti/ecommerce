@@ -8,6 +8,7 @@ use App\Models\category;
 use App\Models\clients;
 use App\Http\Resources\CategoryResource;
 use App\Http\Controllers\clientsContoller;
+use App\Http\Controllers\orderController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -61,6 +62,9 @@ Route::get('categories', function()  {
 // category 
 Route::post('/addclient', "clientsContoller@store");
 Route::post('/loginclient', "clientsContoller@login");
+
+// orders 
+Route::post('/order', "orderController@store");
 
 
 

@@ -51,6 +51,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('sizes') }}">{{ __('Sizes') }}</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('orders') }}">{{ __('Orders') }}</a>
+                        </li>
                     </ul>
                     
                     @endauth

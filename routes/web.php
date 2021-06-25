@@ -51,3 +51,9 @@ Route::post('/item/add', [App\Http\Controllers\ItemController::class, 'add'])->n
 // item update page and add
 Route::get('/item/additempage',  [App\Http\Controllers\ItemController::class, 'addItemPage'])->name('item.additempage');
 Route::get('/item/updateitempage/{id}',  [App\Http\Controllers\ItemController::class, 'updateItemPage'])->name('item.updateitempage');
+
+// orders
+Route::get('/orders', [App\Http\Controllers\orderController::class, 'index'])->name('orders');
+Route::get('/orders/info/client/{client_id}', [App\Http\Controllers\orderController::class, 'client_info'])->name('client.info');
+Route::get('/orders/info/item/{item_id}', [App\Http\Controllers\orderController::class, 'item_info'])->name('item.info');
+Route::get('/orders/info/paid/{item_id}', [App\Http\Controllers\orderController::class, 'setPaid'])->name('item.paid');
